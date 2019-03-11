@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>				
+		<meta charset="utf-8" />		
+		<title>Kanban</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="index.css">		
+	</head>
+  	<body>  		  		
+  		<nav id="navbar">	  			
+    		<div id="menu" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					<span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Boards
+				</a>							
+				<ul id="ulWorkspaces" class="dropdown-menu">
+					<li>
+						<a href="#" id="linkNewWorkspace">
+							<span class="glyphicon glyphicon-plus"></span> New board...
+						</a>
+						<a href="#" id="linkRenameWorkspace">
+							<span class="glyphicon glyphicon-pencil"></span> Rename this board
+						</a>
+						<a href="#" id="linkRemoveWorkspace">
+							<span class="glyphicon glyphicon-remove"></span> Remove this board
+						</a>
+						<a href="#" id="linkTasksHistory">
+							<span class="glyphicon glyphicon-book"></span> Tasks History
+						</a>
+					</li>								
+					<li style="border-bottom: 1px solid black"></li>
+				</ul>
+			</div>
+			<div id="title"></div>  		            		        
+	        <div id="icon"><img src="kanban.png" /> Scrum Table</div>	        		        			       
+	    </nav>
+  		<div id="kanban">  			  					  	
+  			<div class="column">
+  				<div class="header">
+  					<h2>To Do</h2>
+  					<button id="btnAddTask" type="button" class="btn btn-default" aria-label="Add">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</div>  			
+				<div id="todo" kanban-column-id="todo" class="tasksarea red"></div>	
+  			</div>
+  			<div class="column">
+  				<div class="header">
+  					<h2>Work in Progress</h2>				  				
+  				</div>
+  				<div kanban-column-id="wip" class="tasksarea yellow"></div>
+  			</div>
+  			<div class="column">
+  				<div class="header">
+  					<h2>Done</h2>
+  				</div>
+  				<div kanban-column-id="done" class="tasksarea green"></div>
+  			</div>
+			<div class="column">
+  				<div class="header">
+  					<h2>sTORİES</h2>
+  				</div>
+  				<div kanban-column-id="FREE" class="tasksarea green"></div>
+  			</div>
+  		</div>  		
+		<div id="modalContainer"> 
+	  		<div id="modalBackground"></div>
+			<div id="modalTask" class="modal">
+				<div style="padding: 24px; background: white">
+					<h2>Add Task</h2>					
+					<label id="labelTaskTitle">Title:</label>
+		        	<input type="text" name="title" id="inputTaskTitle" style="width: 100%"/><br/>
+		        	<br/>
+		        	<label>Description:</label>
+		        	<textarea name="description" id="inputTaskDescription" style="width: 100%; height: 60px"></textarea>
+		        	<br/>
+		        	<div style="text-align: right; margin-top: 12px">		        	
+			        	<button id="btnTaskCancel" type="button" class="btn btn-default" aria-label="Cancel">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+						</button>
+			        	<button id="btnTaskOk" type="button" class="btn btn-default" aria-label="Ok">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ok
+						</button>					
+					</div>
+				</div>
+			</div>		
+			<div id="modalPreview" class="modal">
+				<div style="padding: 24px; background: white">
+					<h2 id="taskPreviewTitle">Add Task</h2>										
+		        	<br/>
+		        	<p id="taskPreviewDescription"></p>		        	
+		        	<div style="text-align: right; margin-top: 12px">		        				        	
+			        	<button id="btnTaskPreviewOk" type="button" class="btn btn-default" aria-label="Ok">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ok
+						</button>					
+					</div>
+				</div>
+			</div>
+			<div id="modalHistory" class="modal">
+				<div style="padding: 24px; background: white;">
+					<h2>Tasks History</h2>				
+					<div id="historyTableContainer" style="display: block; overflow-y: scroll; width: 100%;">
+						<table id="historyTable">
+							<thead>
+								<tr>
+									<th style="width: 70%">Title</th>
+									<th style="width: 10%">State</th>
+									<th style="width: 10%">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+		        	<div style="text-align: right; margin-top: 12px">		        				        	
+			        	<button id="btnHistoryOk" type="button" class="btn btn-default" aria-label="Ok">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ok
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>		
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.dotdotdot/1.7.4/jquery.dotdotdot.min.js"></script>
+		<script type="text/javascript" src="messages.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>
